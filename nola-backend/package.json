@@ -1,0 +1,25 @@
+{
+  "name": "nola-backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsx server.ts"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.5",
+    "body-parser": "^2.2.0",
+    "config": "^4.1.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.6"
+  }
+}
