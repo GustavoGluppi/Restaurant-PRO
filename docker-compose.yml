@@ -22,6 +22,8 @@ services:
       context: ./nola-data
       dockerfile: Dockerfile
     container_name: godlevel-data-gen
+    profiles:
+      - tools
     depends_on:
       postgres:
         condition: service_healthy
