@@ -30,13 +30,12 @@ cd Restaurant-PRO
 
 docker compose down -v
 docker compose build --no-cache
-docker compose run --rm data-generator
-docker compose up
+docker compose --profile tools up
 ```
 
 ## 🚩 Endpoints
 
-### 1. `POST /queryTable`
+### 1. `POST /api/chart`
 
 Consulta dados de uma tabela com filtros, agregações e ordenações.
 
@@ -81,7 +80,7 @@ Consulta dados de uma tabela com filtros, agregações e ordenações.
 
 ---
 
-### 2. `GET /tables`
+### 2. `GET /api/tables`
 
 Retorna todas as tabelas do schema `public`.
 
@@ -93,7 +92,7 @@ Retorna todas as tabelas do schema `public`.
 
 ---
 
-### 3. `GET /cols/:table`
+### 3. `GET /api/tables/:table`
 
 Retorna as colunas e tipos de dados de uma tabela específica.
 
@@ -115,7 +114,7 @@ Retorna as colunas e tipos de dados de uma tabela específica.
 
 ## Cache
 
-* Todas as consultas do endpoint `/queryTable` são armazenadas no Redis por 5 minutos.
+* Todas as consultas do endpoint `/api/chart` são armazenadas no Redis por 5 minutos.
 * Chave de cache: JSON stringificado do body da requisição.
 
 ## Observações
@@ -125,4 +124,5 @@ Retorna as colunas e tipos de dados de uma tabela específica.
 * Períodos válidos: `7days`, `30days`, `90days`, `360days`.
 * Agrupamento por período válido: `month`, `year`.
 
-
+## ⚠️ Disclaimer
+Foi utilizada IA para construção de parte frontend, como o Figma AI.
