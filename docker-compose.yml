@@ -34,7 +34,6 @@ services:
         echo 'Generating challenge data...' &&
         python generate_data.py --db-url postgresql://challenge:challenge_2024@postgres:5432/challenge_db
       "
-
   pgadmin:
     image: dpage/pgadmin4:latest
     container_name: godlevel-pgadmin
@@ -54,9 +53,9 @@ services:
       dockerfile: Dockerfile
     container_name: godlevel-backend
     ports:
-      - "8000:8000"
+      - "8080:8080"
     environment:
-      PORT: 8000
+      PORT: 8080
       REDIS_URL: redis
       REDIS_PORT: 6379
       CONNECTION_STRING: postgresql://challenge:challenge_2024@postgres:5432/challenge_db
