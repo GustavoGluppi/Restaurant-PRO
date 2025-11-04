@@ -34,8 +34,6 @@ services:
         echo 'Generating challenge data...' &&
         python generate_data.py --db-url postgresql://challenge:challenge_2024@postgres:5432/challenge_db
       "
-    profiles:
-      - tools
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -59,7 +57,8 @@ services:
       - "8000:8000"
     environment:
       PORT: 8000
-      REDIS_URL: redis://redis:6379
+      REDIS_URL: redis
+      REDIS_PORT: 6379
       CONNECTION_STRING: postgresql://challenge:challenge_2024@postgres:5432/challenge_db
       NODE_ENV: production
       FRONTEND_URL: http://frontend:3000
@@ -68,10 +67,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
-    volumes:
-      - .:/app
-      - /app/node_modules
-    command: ["npx", "tsx", "server.ts"]
   frontend:
     container_name: godlevel-frontend
     build:

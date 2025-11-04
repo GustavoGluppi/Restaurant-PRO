@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import pool from "../db/index.js";
-import redis from "../../redisclient.js";
+import redis from "../../redisClient.js";
 import type { queryBody } from "../../interfaces/QueryBody.js";
 import { stableStringify } from "../../utils/stableStringify.js";
 

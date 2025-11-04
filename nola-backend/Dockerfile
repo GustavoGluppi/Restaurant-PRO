@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-bullseye
 
 WORKDIR /app
 
@@ -7,6 +7,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm run build
+
 EXPOSE 8000
 
-CMD ["npx", "tsx", "server.ts"]
+CMD ["node", "dist/server.js"]
